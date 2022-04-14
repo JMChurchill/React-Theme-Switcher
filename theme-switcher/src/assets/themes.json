@@ -1,0 +1,38 @@
+[
+  {
+    "name": "darkBlue/white",
+    "primary": "darkblue",
+    "background": "white",
+    "isDark": false
+  },
+  {
+    "name": "pink/white",
+    "primary": "pink",
+    "background": "white",
+    "isDark": false
+  },
+  {
+    "name": "green/white",
+    "primary": "green",
+    "background": "white",
+    "isDark": false
+  },
+  {
+    "name": "lightblue/white",
+    "primary": "lightblue",
+    "background": "white",
+    "isDark": false
+  },
+  {
+    "name": "darkBlue/black",
+    "primary": "darkblue",
+    "background": "black",
+    "isDark": true
+  },
+  {
+    "name": "red/black",
+    "primary": "red",
+    "background": "black",
+    "isDark": true
+  }
+]
