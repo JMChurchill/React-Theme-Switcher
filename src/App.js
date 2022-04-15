@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import ColorSelector from "./Components/ColorSelector";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";

@@ -26,18 +26,19 @@ const FontSizeBar = () => {
       {fontSizes.map((size, i) => {
         if (i == 0) {
           return (
-            <>
+            <React.Fragment key={i}>
               <div
                 className={styles.bar_end}
                 aria-current={selected == size ? "true" : false}
                 onClick={() => changeSelectedFont(size)}
               ></div>
               <div className={styles.bar_center}></div>
-            </>
+            </React.Fragment>
           );
         } else if (i == fontSizes.length - 1) {
           return (
             <div
+              key={i}
               className={styles.bar_end}
               aria-current={selected == size ? "true" : false}
               onClick={() => changeSelectedFont(size)}
@@ -45,14 +46,14 @@ const FontSizeBar = () => {
           );
         } else {
           return (
-            <>
+            <React.Fragment key={i}>
               <div
                 className={styles.bar_position}
                 aria-current={selected == size ? "true" : false}
                 onClick={() => changeSelectedFont(size)}
               ></div>
               <div className={styles.bar_center}></div>
-            </>
+            </React.Fragment>
           );
         }
       })}
