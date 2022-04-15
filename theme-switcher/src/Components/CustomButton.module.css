@@ -1,0 +1,79 @@
+.primary {
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: white;
+  min-width: 12rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  font-size: 1.5rem;
+  transition: all 200ms;
+}
+.primary:hover {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  /* scale: 1.05; */
+  transform: scale(1.05);
+}
+
+.secondary {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  min-width: 12rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  font-size: 1.5rem;
+  transition: all 200ms;
+}
+.secondary:hover {
+  /* scale: 1.05; */
+  transform: scale(1.05);
+}
+
+.icon {
+  background-color: var(--background-color);
+  font-size: 2rem;
+  padding: 0;
+  border-radius: var(--border-radius);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+  color: black;
+  border: 2px solid black;
+}
+.icon:hover {
+  /* scale: 1.1; */
+  transform: scale(1.1);
+}
+.floating_icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 2rem;
+  border-radius: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 200ms;
+  cursor: pointer;
+}
+.floating_icon:hover {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  /* scale: 1.05; */
+  transform: scale(1.2);
+}

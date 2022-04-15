@@ -26,13 +26,27 @@
   {
     "name": "darkBlue/black",
     "primary": "darkblue",
-    "background": "black",
+    "background": "#020408",
     "isDark": true
   },
   {
     "name": "red/black",
     "primary": "red",
     "background": "black",
+    "isDark": true
+  },
+  {
+    "name": "purple/black",
+    "primary": "#594a70",
+    "background": "#221737",
+    "isDark": true
+  },
+  {
+    "name": "yellow/black",
+    "primary": "#E3FE72",
+    "background": "#121723",
+    "text": "#FFFEFF",
+    "buttontext": "black",
     "isDark": true
   }
 ]

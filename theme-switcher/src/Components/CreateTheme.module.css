@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  background-color: var(--items-container);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: inset var(--box-shadow-offset-x) var(--box-shadow-offset-y)
+    var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);
+}
+.container label {
+  color: var(--text-color);
+  font-size: var(--font-size);
+}

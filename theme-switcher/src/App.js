@@ -1,25 +1,24 @@
 import logo from "./logo.svg";
 import "./App.css";
 import ColorSelector from "./Components/ColorSelector";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 //import json -> would be saved on db
 import themeData from "./assets/themes.json";
 import { useEffect, useState } from "react";
 import FontSizeBar from "./Components/FontSizeBar";
+import CustomButton from "./Components/CustomButton";
+import AllThemes from "./Components/AllThemes";
+import CreateTheme from "./Components/CreateTheme";
 
 function App() {
-  const [themes, setThemes] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState();
   const setDefaultTheme = () => {
-    // document.documentElement.style.setProperty("--background-color", "white");
-    // document.documentElement.style.setProperty("--primary-color", "lightblue");
-    // document.documentElement.style.setProperty("--text-color", "black");
     setTheme();
   };
   const setTheme = (
     backgroundColor = "white",
     primaryColor = "lightblue",
-    isDark = "false"
+    isDark = false
   ) => {
     document.documentElement.style.setProperty(
       "--background-color",
@@ -28,19 +27,14 @@ function App() {
     document.documentElement.style.setProperty("--primary-color", primaryColor);
     document.documentElement.style.setProperty(
       "--text-color",
-      isDark ? "white" : "black"
+      isDark ? "#c9d1d9" : "black"
     );
-
-    // if (isDark) {
-    //   document.documentElement.style.setProperty("--text-color", "white");
-    // } else document.documentElement.style.setProperty("--text-color", "black");
+    document.documentElement.style.setProperty(
+      "--items-container",
+      isDark ? "rgba(255, 255, 255, 0.1)" : "rgb(0, 0, 0, 0.05)"
+    );
   };
-  useEffect(() => {
-    setThemes(themeData);
-    // // get selected index from local storage
-    // const index = 4;
-    // setSelectedIndex(index);
-  }, []);
+
   useEffect(() => {
     //get themes from local storage
     let theme = JSON.parse(localStorage.getItem("theme"));
@@ -57,42 +51,37 @@ function App() {
       }
     }
   });
-  const selectTheme = (backgroundColor, primaryColor, isDark) => {
-    setTheme(backgroundColor, primaryColor, isDark);
-    localStorage.setItem(
-      "theme",
-      JSON.stringify({
-        backgroundColor: backgroundColor,
-        primaryColor: primaryColor,
-        isDark: isDark,
-      })
-    );
-  };
+
   return (
-    <main>
-      <div className="container">
-        <h1>Theme switcher</h1>
-        <h2>Font size</h2>
-        <div className="fonts_container">
-          <FontSizeBar />
+    <Router>
+      <main>
+        <div className="container">
+          <h1>Theme switcher</h1>
+          <h2>Font size</h2>
+          <div className="fonts_container">
+            <FontSizeBar />
+          </div>
+          <Routes>
+            <Route path="/" element={<AllThemes />} />
+            <Route path="/create" element={<CreateTheme />} />
+            {/* <AllThemes /> */}
+          </Routes>
+          <h1>Site Controls</h1>
+          <CustomButton
+            text={"Refresh"}
+            onClick={() => window.location.reload()}
+          />
+          <CustomButton
+            text={"Clear Local Storage"}
+            type={2}
+            onClick={() => {
+              localStorage.clear();
+              window.location.reload();
+            }}
+          />
         </div>
-        <h2>Colors</h2>
-        <div className="all_colors_container">
-          {/* <ColorSelector /> */}
-          {themes.map((theme, i) => (
-            <ColorSelector
-              key={i}
-              name={theme.name}
-              primaryColor={theme.primary}
-              backgroundColor={theme.background}
-              isDark={theme.isDark}
-              selectTheme={selectTheme}
-            />
-          ))}
-        </div>
-        <button>Refrensh Page</button>
-      </div>
-    </main>
+      </main>
+    </Router>
   );
 }
 
